@@ -1,0 +1,72 @@
+<section class="ftco-booking">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="#" class="booking-form">
+                    <div class="row">
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                                <div class="wrap">
+                                    <label for="#">Pays</label>
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <select class="form-control" name="country" [(ngModel)]="selectedPays" (change)="onPaysChange()">
+                                                <option >-- Sélectionnez un pays --</option>
+                                                <option *ngFor="let pays of paysList" [value]="pays.id"> {{ pays.nom }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                                <div class="wrap">
+                                    <label for="#">Ville</label>
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <select class="form-control" name="city"  [(ngModel)]="selectedCity">
+                                                <option >-- Sélectionnez une ville --</option>
+
+                                                <option *ngFor="let ville of villesList" [value]="ville.id"> {{ ville.nom }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                                <div class="wrap">
+                                    <label for="#">Hôtel</label>
+                                    <div class="form-field">
+                                        <div class="select-wrap">
+                                            <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                            <select id="hotelSelect" class="form-control" name="hotel" [(ngModel)]="selectedHotelId" (change)="onHotelSelect()">
+                                                <option >-- Sélectionnez un hôtel --</option>
+
+                                                <option *ngFor="let hotel of hotelsListe" [value]="hotel.id"> {{ hotel.nom }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                          
+                        <div class="col-md d-flex">
+                            <div class="form-group d-flex align-self-stretch">
+                                <input type="submit" value="Check Availability"
+                                    class="btn btn-primary py-3 px-4 align-self-stretch">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
