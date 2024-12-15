@@ -3,18 +3,26 @@ import { Ville } from "../models/ville.model";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Pays } from "../models/pays.model";
+import { environment } from "../../environment/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class VilleService {
-    private baseUrl = 'http://localhost:8080/api/villes';
+
 
     constructor(private http: HttpClient) { }
     
   
     getAllVilles(): Observable<Ville[]> {
-        return this.http.get<Ville[]>(this.baseUrl);
+        return this.http.get<Ville[]>(environment.baseApi+"/villes");
+    }
+
+    saveVille(ville: Ville): Observable<void> {
+        return this.http.post<void>(
+          environment.baseApi + '/ville',
+          ville
+        );
     }
 
 }

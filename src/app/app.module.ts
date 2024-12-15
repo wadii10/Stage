@@ -10,6 +10,7 @@ import { SearchHomeComponent } from './components/search-home/search-home.compon
 import { HttpClientModule } from '@angular/common/http';
 import { PaysComponent } from './components/pays/pays.component';
 import { CommonModule } from '@angular/common';
+import { VilleComponent } from './components/admin/ville/ville.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
           NavbarComponent,
           SearchHomeComponent,
-          PaysComponent
+          PaysComponent,
+          VilleComponent
   ],
   imports: [
     BrowserModule,

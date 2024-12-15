@@ -39,7 +39,7 @@ export class SearchHomeComponent implements OnInit{
       (data) => {
         this.hotelsListe = data;
   
-  // console.log(data , "data")
+        // console.log(data , "data")
         // Option : sélectionner automatiquement le premier hôtel
         if (this.hotelsListe.length > 0 && this.hotelsListe[0].id) {
           this.selectedHotelId = this.hotelsListe[0].id;
@@ -67,14 +67,6 @@ export class SearchHomeComponent implements OnInit{
 
   onPaysChange(): void {
     console.log("pays selected",this.selectedPays)
-    if (this.selectedPays) {
-      this.paysService.getVillesByPays(this.selectedPays).subscribe((data: Ville[]) => {
-        this.villesList = data;
-        
-      });
-    } else {
-      this.villesList = []; // Réinitialiser si aucun pays n'est sélectionné
-    }
   }
   // loadPays() {
   //   console.log('Chargement des pays');

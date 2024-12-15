@@ -11,7 +11,7 @@
                                     <div class="form-field">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select class="form-control" name="country" [(ngModel)]="selectedPays" (change)="onPaysChange()">
+                                            <select class="form-control" name="country" [(ngModel)]="selectedPays" (onChange)="onPaysChange()">
                                                 <option >-- Sélectionnez un pays --</option>
                                                 <option *ngFor="let pays of paysList" [value]="pays.id"> {{ pays.nom }}</option>
                                             </select>

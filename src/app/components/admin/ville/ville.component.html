@@ -1,0 +1,77 @@
+<!-- Trigger button -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    ajouter une ville
+</button>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Pays</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ville of villes; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ ville.nom }}</td>
+        <td>{{ ville.pays.nom }}</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Edit
+              </button>
+          <!-- <button class="btn btn-primary" (click)="editVille(ville)">Edit</button> -->
+          <button class="btn btn-danger" (click)="deleteVille(ville)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form (ngSubmit)="saveVille()">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Ville</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Input for Ville Name -->
+            <div class="mb-3">
+              <label for="villeName" class="form-label">Nom de Ville</label>
+              <input
+                type="text"
+                id="villeName"
+                class="form-control"
+                [(ngModel)]="ville"
+                name="nom"
+                required
+              />
+            </div>
+  
+            <!-- Select for Pays List -->
+            <div class="mb-3">
+              <label for="paysSelect" class="form-label">Pays</label>
+              <select
+                id="paysSelect"
+                class="form-select"
+                [(ngModel)]="paysList"
+                name="pays"
+                required
+              >
+                <option *ngFor="let pays of paysList" [value]="pays.id">
+                  {{ pays.nom }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
